@@ -1,6 +1,7 @@
 class TankingLogController < ApplicationController
   def new
     @tanking_log = TankingLogs.new
+    @tanking_log.car_id = params[:id]
   end
 
   def create

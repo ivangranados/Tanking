@@ -1,6 +1,6 @@
 <h1>Nuevo Tankeo</h1>
 <p>Escriba los datos de su Nuevo Tankeo en el siguiente formulario</p>
-<p><%= link_to "Regresar", tanking_log_index_path %></p>
+<p><%= link_to "Regresar", tanking_log_index_path(:id => params[:id]) %></p>
 
 <%= form_for(:tanking_log, :url => tanking_log_create_path) do |c| %>
   <table>
