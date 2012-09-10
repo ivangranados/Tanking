@@ -3,6 +3,7 @@
 <p>Para regresar a sus autos clic <%= link_to "Aqui", root_path %></p>
 <p><%= flash[:notice] %> </p>
 <p>Si la estacion no existe creela <%= link_to "Aqui", gas_station_new_path %></p>
+<p>Para registrar un nuevo tankeo haga clic <%= link_to "Aqui", tanking_log_new_path %></p>
 
 <table class="table table-bordered">
 	<thead>
@@ -19,10 +20,3 @@
 	
 	</tbody>
 </table>
-
-Cost	Float  
-Gallon	Float
-Km	Int
-Date	date
-Car_id	Int
-Gas_station_id	Int

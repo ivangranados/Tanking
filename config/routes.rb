@@ -59,7 +59,7 @@ Station::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   resources :cars
-  resource :gas_stations
+  resources :gas_stations
 
   # Sample resource route with options:
   #   resources :products do
