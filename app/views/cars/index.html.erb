@@ -1,0 +1,37 @@
+<h1>Cars</h1>
+
+<%if user_signed_in?  %> 
+<p>User: <%= @user.name %></p>
+<%= link_to "Nuevo Carro", cars_new_path %>
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>Marca</th>
+			<th>Modelo</th>
+			<th>Año</th>
+			<th>Color</th>
+		</tr>
+	</thead>
+	<tbody>
+	<% @cars.each do |car| %>
+  <tr>
+    <td><%= car.brand %></td>
+    <td><%= car.model %></td>
+    <td><%= car.year %></td>
+    <td><%= car.color %></td>
+    <td><%= link_to 'Show', cars_show_path %></td>
+    <td><%= link_to 'Edit', cars_edit_path(car) %></td>
+    <td><%= link_to 'Remove', cars_destroy_path, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+	</tbody>
+</table>
+
+
+
+<%=link_to "Sign out ", destroy_user_session_path, :method => :delete %> 
+<% else %>
+<p>Para poder ver las tanqueadas de su Auto por favor haga Login </p>
+<%= link_to "Log in", new_user_session_path %>
+<% end %>

@@ -1,0 +1,27 @@
+<h1>Nuevo Auto</h1>
+<p>Ingresa los datos del nuevo auto</p>
+
+<%= form_for(:cars, :url => cars_create_path) do |c| %>
+  <table>
+    <tr>
+        <th>Marca</th>
+        <td><%= c.text_field (:brand) %></td>
+    </tr>
+        <tr>
+        <th>Color</th>
+        <td><%= c.text_field (:color) %></td>
+    </tr>
+        <tr>
+        <th>Modelo</th>
+        <td><%= c.text_field (:model) %></td>
+    </tr>
+        <tr>
+        <th>Año</th>
+        <td><%= c.text_field (:year) %></td>
+    </tr>
+  </table>
+
+  <%= submit_tag("Crear Nuevo Auto") %>
+
+
+<% end %>
