@@ -1,2 +1,29 @@
-<h1>Cars#edit</h1>
-<p>Find me in app/views/cars/edit.html.erb</p>
+<h1>Editar Auto</h1>
+<p>Ingresa los datos a modificar</p>
+<%= link_to "Regresar", root_path %>
+
+
+<%= form_for(:cars, :url => cars_update_path(:id => @cars.id)) do |c| %>
+  <table>
+    <tr>
+        <th>Marca</th>
+        <td><%= c.text_field (:brand) %></td>
+    </tr>
+        <tr>
+        <th>Color</th>
+        <td><%= c.text_field (:color) %></td>
+    </tr>
+        <tr>
+        <th>Modelo</th>
+        <td><%= c.text_field (:model) %></td>
+    </tr>
+        <tr>
+        <th>Año</th>
+        <td><%= c.text_field (:year) %></td>
+    </tr>
+  </table>
+
+  <%= submit_tag("Editar Auto") %>
+
+
+<% end %>

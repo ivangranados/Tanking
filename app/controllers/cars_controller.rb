@@ -17,13 +17,20 @@ class CarsController < ApplicationController
 
   def update
     @cars = Car.find(params[:id])
-  end
-
-  def delete
+    if @cars.update_attributes(params[:cars])
+      flash[:notice] = "Auto actualizado exitosamente"
+      redirect_to (cars_index_path)
+    else
+      # This line overrides the default rendering behavior, which
+      # would have been to render the "create" view.
+      render :action => "edit"
+    end
   end
 
   def destroy
-    @cars = Car.find(params[:id])
+    Car.find(params[:id]).destroy
+    flash[:notice] = "Auto borrado exitosamente"
+    redirect_to (root_path)
   end
 
   def new
@@ -35,6 +42,7 @@ class CarsController < ApplicationController
     @cars = Car.new(params[:cars])
     @cars.user_id = current_user
     if @cars.save
+      flash[:notice] = "Auto creado exitosamente"
       redirect_to (cars_index_path)
     else
       # This line overrides the default rendering behavior, which

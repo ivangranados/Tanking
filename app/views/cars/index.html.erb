@@ -1,9 +1,11 @@
 <h1>Cars</h1>
+<% if !flash[:notice].blank? %>
+<p> <%= flash[:notice] %> </p>
+<% end %>
 
 <%if user_signed_in?  %> 
 <p>User: <%= @user.name %></p>
-<%= link_to "Nuevo Carro", cars_new_path %>
-
+<p><%= link_to "Nuevo Carro", cars_new_path %></p>
 <table class="table table-bordered">
 	<thead>
 		<tr>
@@ -20,9 +22,9 @@
     <td><%= car.model %></td>
     <td><%= car.year %></td>
     <td><%= car.color %></td>
-    <td><%= link_to 'Show', cars_show_path %></td>
-    <td><%= link_to 'Edit', cars_edit_path(car) %></td>
-    <td><%= link_to 'Remove', cars_destroy_path, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', cars_show_path(:id => car) %></td>
+    <td><%= link_to 'Edit', cars_edit_path(:id => car) %></td>
+    <td><%= link_to 'Remove', cars_destroy_path(:id => car), :confirm => 'Esta seguro de desea eliminar este Auto?'%></td>
   </tr>
 <% end %>
 	</tbody>

@@ -1,5 +1,7 @@
 <h1>Nuevo Auto</h1>
 <p>Ingresa los datos del nuevo auto</p>
+<p><%= link_to "Regresar", root_path %></p>
+
 
 <%= form_for(:cars, :url => cars_create_path) do |c| %>
   <table>
