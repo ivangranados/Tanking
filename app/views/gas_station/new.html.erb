@@ -1,0 +1,17 @@
+<h1>Crear una GasStation</h1>
+
+<p><%= link_to "Regresar", tanking_log_index_path %></p>
+
+
+<%= form_for(:gas_station, :url => gas_station_create_path) do |c| %>
+  <table>
+    <tr>
+        <th>Nombre</th>
+        <td><%= c.text_field (:name) %></td>
+    </tr>
+  </table>
+
+  <%= submit_tag("Crear Nuevo Estacion") %>
+
+
+<% end %>

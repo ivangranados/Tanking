@@ -25,6 +25,8 @@
     <td><%= link_to 'Show', cars_show_path(:id => car) %></td>
     <td><%= link_to 'Edit', cars_edit_path(:id => car) %></td>
     <td><%= link_to 'Remove', cars_destroy_path(:id => car), :confirm => 'Esta seguro de desea eliminar este Auto?'%></td>
+    <td><%= link_to 'Tankear', tanking_log_index_path(:id => car) %></td>
+
   </tr>
 <% end %>
 	</tbody>

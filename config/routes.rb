@@ -1,5 +1,33 @@
 Station::Application.routes.draw do
-  
+
+  get "tanking_log/new"
+
+  get "tanking_log/create"
+
+  get "tanking_log/show"
+
+  get "tanking_log/edit"
+
+  get "tanking_log/update"
+
+  get "tanking_log/destroy"
+
+  get "tanking_log/index"
+
+  get "gas_station/new"
+
+  get "gas_station/create"
+
+  get "gas_station/show"
+
+  get "gas_station/edit"
+
+  get "gas_station/update"
+
+  get "gas_station/destroy"
+
+  get "gas_station/index"
+
   get "cars/index"
 
   get "cars/show"
@@ -31,6 +59,7 @@ Station::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   resources :cars
+  resource :gas_stations
 
   # Sample resource route with options:
   #   resources :products do

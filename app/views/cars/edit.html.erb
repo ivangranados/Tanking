@@ -1,6 +1,6 @@
 <h1>Editar Auto</h1>
 <p>Ingresa los datos a modificar</p>
-<%= link_to "Regresar", root_path %>
+<p><%= link_to "Regresar", root_path %></p>
 
 
 <%= form_for(:cars, :url => cars_update_path(:id => @cars.id)) do |c| %>
