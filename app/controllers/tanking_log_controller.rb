@@ -11,7 +11,7 @@ class TankingLogController < ApplicationController
     
     if @tanking_log.save
       flash[:notice] = "Tankeo Guardado"
-      redirect_to (tanking_log_index_path(:car_id => @tanking_log.car_id))
+      redirect_to (tanking_log_index_path(:id => @tanking_log.car_id))
     else
       # This line overrides the default rendering behavior, which
       # would have been to render the "create" view.
