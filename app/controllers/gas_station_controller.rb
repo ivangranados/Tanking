@@ -8,7 +8,7 @@ class GasStationController < ApplicationController
     
     if @gas_station.save
       flash[:notice] = "Estacion de Gasolina Creada Exitosamente"
-      redirect_to (tanking_log_index_path)
+      redirect_to (tanking_log_index_path(:id => params[:id]))
     else
       # This line overrides the default rendering behavior, which
       # would have been to render the "create" view.

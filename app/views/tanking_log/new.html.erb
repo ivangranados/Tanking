@@ -2,7 +2,7 @@
 <p>Escriba los datos de su Nuevo Tankeo en el siguiente formulario</p>
 <p><%= link_to "Regresar", tanking_log_index_path(:id => params[:id]) %></p>
 
-<%= form_for(:tanking_log, :url => tanking_log_create_path) do |c| %>
+<%= form_for(:tanking_log, :url => tanking_log_create_path(:id => params[:id])) do |c| %>
   <table>
     <tr>
     	<th>Cost</th>
@@ -18,7 +18,7 @@
     </tr>
     <tr>
     	<th>Date</th>
-        <td><%= c.text_field (:date) %></td>
+        <td><%= c.date_select (:date) %></td>
     </tr>
     <tr>
     	<th>Car</th>
@@ -26,7 +26,7 @@
     </tr>
     <tr>
     	<th>Gas Station</th>
-        <td><%= c.text_field (:gas_station_id) %></td>
+        <td><%= select :tanking_log, :gas_station_id, @gas_stations %> </td>
     </tr>
   </table>
 
