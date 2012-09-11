@@ -1,6 +1,7 @@
 class GasStationController < ApplicationController
   def new
     @gas_station = GasStation.new
+    @show = GasStation.all
   end
 
   def create

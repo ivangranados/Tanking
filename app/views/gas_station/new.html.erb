@@ -13,5 +13,20 @@
 
   <%= submit_tag("Crear Nuevo Estacion") %>
 
+<h3>Estaciones</h3>
+<table class="table table-bordered" width = 15% >
+	<thead>
+		<tr>
+			<th>Nombre</th>
+		</tr>
+	</thead>
+	<tbody>
+	<% @show.each do |stations| %>
+  		<tr>
+    		<td><%= stations.name %></td>
+  		</tr>
+	<% end %>
+	</tbody>
+</table>
 
 <% end %>
