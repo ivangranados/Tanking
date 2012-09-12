@@ -1,4 +1,7 @@
 class TankingLogController < ApplicationController
+  
+  layout 'graphs'
+
   def new
     @tanking_log = TankingLogs.new
     @gas_stations = GasStation.find(:all, :order => 'name').map{|x| [x.name] + [x.id]}
@@ -32,6 +35,8 @@ class TankingLogController < ApplicationController
   end
 
   def index
+    
     @tanking_log = TankingLogs.where(:car_id => params[:id])
+    @gas_stations = GasStation.find(:all)
   end
 end
