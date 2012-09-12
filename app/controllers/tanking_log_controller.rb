@@ -1,10 +1,10 @@
 class TankingLogController < ApplicationController
   
-  layout 'graphs'
+
 
   def new
     @tanking_log = TankingLogs.new
-    @gas_stations = GasStation.find(:all, :order => 'name').map{|x| [x.name] + [x.id]}
+    @gas_stations = GasStation.find(:all, :order => 'name').map{|x| [x.name, x.id]}
     @tanking_log.car_id = params[:id]
     @tanking_log.date = Time.now.strftime("%Y-%m-%d %H:%M:%S")
   end
@@ -35,8 +35,14 @@ class TankingLogController < ApplicationController
   end
 
   def index
-    
     @tanking_log = TankingLogs.where(:car_id => params[:id])
     @gas_stations = GasStation.find(:all)
+    @cost = @tanking_log.all.map{|x| x.cost}
+    @name_cost =   @tanking_log.all.map{|x| GasStation.find(x.gas_station_id).name }
+    @cost_v = [[''],[]]
+    @name_cost_v = [[''],[]]
+    @f_cost = @cost_v << @cost
+    @f_name_cost = @name_cost_v << @name_cost
+    logger.info "hello>>>><>"+ @f_cost.flatten.inspect
   end
 end
