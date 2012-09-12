@@ -3,7 +3,7 @@
 <p><%= link_to "Regresar", tanking_log_index_path(:id => params[:id]) %></p>
 
 
-<%= form_for(:gas_station, :url => gas_station_create_path) do |c| %>
+<%= form_for(:gas_station, :url => gas_station_create_path(:id => params[:id])) do |c| %>
   <table>
     <tr>
         <th>Nombre</th>
@@ -14,7 +14,7 @@
   <%= submit_tag("Crear Nuevo Estacion") %>
 
 <h3>Estaciones</h3>
-<table class="table table-bordered" width = 15% >
+<table class="table table-hover" width = 15% >
 	<thead>
 		<tr>
 			<th>Nombre</th>
@@ -28,5 +28,4 @@
 	<% end %>
 	</tbody>
 </table>
-
 <% end %>
