@@ -28,6 +28,7 @@ class CarsController < ApplicationController
   end
 
   def destroy
+    TankingLogs.where(:car_id => params[:id]).destroy_all
     Car.find(params[:id]).destroy
     flash[:notice] = "Auto borrado exitosamente"
     redirect_to (root_path)

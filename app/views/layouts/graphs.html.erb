@@ -10,9 +10,6 @@
     <script type="text/javascript">
       google.load('visualization', '1');
     </script>
-    <script type="text/javascript">
-      
-    </script>
 
 </head>
 <body>
@@ -37,13 +34,19 @@
     </div>
 
     <div class="container">
-  <script type="text/javascript">
+
+    	<%= yield %>
+
+    </div> <!-- /container -->
+
+
+<script type="text/javascript">
       function drawVisualization() {
         var wrapper = new google.visualization.ChartWrapper({
           chartType: 'ColumnChart',
-          dataTable: [<%=raw @f_name_cost.flatten%>,
-                     <%= raw @f_cost.flatten %>],
-          options: {'title': 'Tanqueada mas Costosa'},
+          dataTable: [['', 'Germany', 'USA', 'Brazil', 'Canada', 'France', 'RU'],
+                      ['', 700, 300, 400, 500, 600, 800]],
+          options: {'title': 'Station with gasoline more expensive'},
           containerId: 'visualization'
         });
         wrapper.draw();
@@ -53,8 +56,5 @@
 
       google.setOnLoadCallback(drawVisualization);
     </script>
-    
-    </div> <!-- /container -->
-
 </body>
 </html>

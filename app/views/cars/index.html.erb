@@ -1,11 +1,16 @@
-<h1>Cars</h1>
+<h1>Your Tanking App</h1>
 <% if !flash[:notice].blank? %>
-<p> <%= flash[:notice] %> </p>
+<div class="alert alert-success">
+<button type="button" class="close" data-dismiss="alert">×</button>
+<%= flash[:notice] %>
+</div> 
 <% end %>
 
 <%if user_signed_in?  %> 
-<p>User: <%= @user.name %></p>
-<p><%= link_to "Nuevo Carro", cars_new_path %></p>
+<p>Bienvenido: <%= @user.name %>, Aqui puedes agregar tus autos y registrar tus tanqueadas</p>
+<p><%= link_to "Nuevo Auto", cars_new_path, {class:"btn"} %></p>
+
+<% if !@cars.empty?%>
 <table class="table table-hover">
 	<thead>
 		<tr>
@@ -22,20 +27,22 @@
     <td><%= car.model %></td>
     <td><%= car.year %></td>
     <td><%= car.color %></td>
-    <td><%= link_to 'Show', cars_show_path(:id => car) %></td>
-    <td><%= link_to 'Edit', cars_edit_path(:id => car) %></td>
-    <td><%= link_to 'Remove', cars_destroy_path(:id => car), :confirm => 'Esta seguro de desea eliminar este Auto?'%></td>
-    <td><%= link_to 'Tankear', tanking_log_index_path(:id => car) %></td>
+    <td><%= link_to 'Edit', cars_edit_path(:id => car), {class:"btn btn-mini"} %></td>
+    <td><%= link_to 'Remove', cars_destroy_path(:id => car), {class:"btn btn-mini",:confirm => 'Esta seguro de desea eliminar este Auto?'}%></td>
+    <td><%= link_to 'Tankear', tanking_log_index_path(:id => car), {class:"btn btn-mini btn-primary"} %></td>
 
   </tr>
 <% end %>
 	</tbody>
 </table>
 
+<% else %>
+	<h4>No tienes ningun Auto aun, agrega uno !!</h4>
+
+<% end %>
 
 
-<%=link_to "Sign out ", destroy_user_session_path, :method => :delete %> 
 <% else %>
 <p>Para poder ver las tanqueadas de su Auto por favor haga Login </p>
-<%= link_to "Log in", new_user_session_path %>
+<%= link_to "Log in", new_user_session_path, {class:"btn"} %>
 <% end %>

@@ -13,6 +13,8 @@ class GasStationController < ApplicationController
     else
       # This line overrides the default rendering behavior, which
       # would have been to render the "create" view.
+      flash[:notice] = "Estacion de Gasolina Ya Existe"
+      @show = GasStation.all
       render :action => "new"
     end
 

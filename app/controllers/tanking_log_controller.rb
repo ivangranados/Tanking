@@ -32,6 +32,7 @@ class TankingLogController < ApplicationController
   end
 
   def destroy
+    
   end
 
   def index
