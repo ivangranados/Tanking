@@ -8,9 +8,9 @@
 
 <table>
 	<tr>
-		<td><%= link_to "Regresar", root_path, {class:"btn"}  %> </td>
-		<td><%= link_to "Nueva Estacion", gas_station_new_path(:id => params[:id]),{class:"btn"}  %></td>
-		<td><%= link_to "Registrar Tanqueo", tanking_log_new_path(:id => params[:id]),{class:"btn"}  %></td>
+		<td><%= link_to "Regresar", root_path, {class:"btn btn-small btn-primary"}  %> </td>
+		<td><%= link_to "Nueva Estacion", gas_station_new_path(:id => params[:id]),{class:"btn btn-small btn-primary"}  %></td>
+		<td><%= link_to "Registrar Tanqueo", tanking_log_new_path(:id => params[:id]),{class:"btn btn-small btn-primary"}  %></td>
 	</tr>
 </table>
 
@@ -35,7 +35,7 @@
 			    <td><%= tanking_log.cost %></td>
 			    <td><%= tanking_log.gallon %></td>
 			    <td><%= tanking_log.km %></td>
-			    <td><%= tanking_log.date %></td>
+			    <td><%= tanking_log.date.strftime("%Y-%m-%d") %></td>
 			    <%- station = GasStation.find(tanking_log.gas_station_id) %>
 			    <td> <%=station.name %></td>
 	  		</tr>
