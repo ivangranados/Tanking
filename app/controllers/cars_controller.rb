@@ -41,7 +41,7 @@ class CarsController < ApplicationController
 
   def create
     @cars = Car.new(params[:cars])
-    @cars.user_id = current_user
+    @cars.user_id = current_user.id
     if @cars.save
       flash[:notice] = "Auto creado exitosamente"
       redirect_to (cars_index_path)
