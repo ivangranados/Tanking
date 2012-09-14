@@ -10,6 +10,7 @@
 <p>Bienvenido: <%= @user.name %>, Aqui puedes agregar tus autos y registrar tus tanqueadas</p>
 <p><%= link_to "Nuevo Auto", cars_new_path, {class:"btn"} %></p>
 
+
 <% if !@cars.empty?%>
 <table class="table table-hover">
 	<thead>

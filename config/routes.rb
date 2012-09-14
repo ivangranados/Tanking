@@ -1,5 +1,9 @@
 Station::Application.routes.draw do
 
+  get "map/gmaps"
+
+  get "maps/view"
+
   get "tanking_log/new"
 
   get "tanking_log/create"
