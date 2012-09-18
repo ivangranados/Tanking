@@ -7,22 +7,22 @@
   <%= csrf_meta_tags %>
 <style type="text/css">
         
-      html, body {height: 100%;}
-
-      #wrap {min-height: 100%;}
-
-      #main {overflow:auto;
-        padding-bottom: 150px;}  /* must be same height as the footer */
-
-      #footer {position: relative;
-        margin-top: -150px; /* negative value of footer height */
-        height: 150px;
-        clear:both;} 
-      
-      .alert-success 
-      {
-      width: 55%;
+      body {
+        margin: 0; 
+        padding: 0; 
+        padding-top: 60px;
+        text-align: center; 
       }
+
+      #centered
+    { 
+     width: 1200px; 
+     text-align: left;
+     border: 0px; 
+     padding: 0;  
+     margin: 0 auto; 
+    } 
+
     </style>
 </head>
 <body>
@@ -48,11 +48,13 @@
         </div>
       </div>
     </div>
-
-    <div class="row">
-      <div class="span4 offset2"><%= yield %></div>
+    <div id="centered">
+      <div class="row">
+      <div class="span4 offset2"><%= yield %> </div>
       <div class="span4 offset2"><%= image_tag("gas_pump.jpeg") %></div>
     </div>
+    </div>
+    
     
 </body>
 
